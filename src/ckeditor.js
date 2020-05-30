@@ -29,6 +29,13 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import StrikeThrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -56,7 +63,14 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	Alignment,
+	Highlight,
+	Underline,
+	StrikeThrough,
+	HorizontalLine,
+	FontFamily,
+	FontSize
 ];
 
 // Editor configuration.
@@ -65,15 +79,18 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'alignment',
 			'bold',
 			'italic',
+			'underline',
+			'strikeThrough',
 			'link',
+			'highlight',
+			'|',
 			'bulletedList',
 			'numberedList',
 			'|',
-			'indent',
-			'outdent',
-			'|',
+			'horizontalLine',
 			'imageUpload',
 			'blockQuote',
 			'insertTable',
@@ -95,6 +112,17 @@ ClassicEditor.defaultConfig = {
 			'tableColumn',
 			'tableRow',
 			'mergeTableCells'
+		]
+	},
+	heading: {
+		options: [
+			{ model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+			{ model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+			{ model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+			{ model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+			{ model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
+			{ model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' },
+			{ model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' }
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.

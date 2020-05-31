@@ -85,6 +85,18 @@ module.exports = {
 						} )
 					}
 				]
+			},
+			{
+				test: /\.js?$/,
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: [ '@babel/env', '@babel/react' ],
+						plugins: [
+							'transform-exponentiation-operator'
+						]
+					}
+				}
 			}
 		]
 	}

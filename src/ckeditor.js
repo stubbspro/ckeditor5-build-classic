@@ -36,6 +36,7 @@ import StrikeThrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -70,7 +71,8 @@ ClassicEditor.builtinPlugins = [
 	StrikeThrough,
 	HorizontalLine,
 	FontFamily,
-	FontSize
+	FontSize,
+	CodeBlock
 ];
 
 // Editor configuration.

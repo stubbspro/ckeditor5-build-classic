@@ -67,12 +67,12 @@ ClassicEditor.builtinPlugins = [
 	TextTransformation,
 	Alignment,
 	Highlight,
+	CodeBlock,
 	Underline,
 	StrikeThrough,
 	HorizontalLine,
 	FontFamily,
-	FontSize,
-	CodeBlock
+	FontSize
 ];
 
 // Editor configuration.

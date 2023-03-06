@@ -13,7 +13,6 @@ import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
-import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
@@ -37,6 +36,12 @@ import StrikeThrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import Video from '@visao/ckeditor5-video/src/video';
+import VideoResize from '@visao/ckeditor5-video/src/videoresize';
+import VideoToolbar from '@visao/ckeditor5-video/src/videotoolbar';
+import VideoStyle from '@visao/ckeditor5-video/src/videostyle';
+import VideoUpload from '@visao/ckeditor5-video/src/videoupload';
+import VideoInsert from '@visao/ckeditor5-video/src/videoinsert';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -49,7 +54,6 @@ ClassicEditor.builtinPlugins = [
 	Italic,
 	BlockQuote,
 	CKFinder,
-	EasyImage,
 	Heading,
 	Image,
 	ImageCaption,
@@ -57,6 +61,12 @@ ClassicEditor.builtinPlugins = [
 	ImageToolbar,
 	ImageUpload,
 	ImageResize,
+	VideoToolbar,
+	Video,
+	VideoUpload,
+	VideoStyle,
+	VideoInsert,
+	VideoResize,
 	Indent,
 	Link,
 	List,
@@ -94,6 +104,7 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'horizontalLine',
 			'imageUpload',
+			'videoUpload',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
@@ -102,12 +113,45 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	image: {
+		resizeUnit: 'px',
+		toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+		styles: [ 'full', 'alignLeft', 'alignRight' ]
+	},
+	video: {
+		resizeUnit: '%',
+		resizeOptions: [
+			{
+				name: 'resizeVideo:original',
+				value: null,
+				icon: 'original'
+			},
+			{
+				name: 'resizeVideo:25',
+				value: '25',
+				icon: 'small'
+			},
+			{
+				name: 'resizeVideo:50',
+				value: '50',
+				icon: 'medium'
+			},
+			{
+				name: 'resizeVideo:75',
+				value: '75',
+				icon: 'large'
+			},
+			{
+				name: 'resizeVideo:100',
+				value: '100',
+				icon: 'large'
+			}
+		],
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
+			'videoStyle:alignLeft', 'videoStyle:full', 'videoStyle:alignRight',
 			'|',
-			'imageTextAlternative'
-		]
+			'videoResize'
+		],
+		styles: [ 'full', 'alignLeft', 'alignRight' ]
 	},
 	table: {
 		contentToolbar: [
@@ -128,5 +172,5 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'ru'
+	language: 'en'
 };
